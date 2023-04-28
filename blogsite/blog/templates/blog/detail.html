@@ -1,0 +1,46 @@
+{% extends 'blog/base.html' %}
+
+
+{% block content %}
+<h2 class="mb-4 display-5 fw-bold text-center text-secondary">All Post</h2>
+<br>
+<h2 class="blog-post-title mb-1">Another blog post</h2>
+<p class="blog-post-meta">December 23, 2020 by <a href="#">Jacob</a></p>
+
+<p>This is some additional paragraph placeholder content. It has been written to fill the available space and show how a longer snippet of text affects the surrounding content. We'll repeat it often to keep the demonstration flowing, so be on the lookout for this exact same string of text.</p>
+<blockquote>
+  <p>Longer quote goes here, maybe with some <strong>emphasized text</strong> in the middle of it.</p>
+</blockquote>
+<p>This is some additional paragraph placeholder content. It has been written to fill the available space and show how a longer snippet of text affects the surrounding content. We'll repeat it often to keep the demonstration flowing, so be on the lookout for this exact same string of text.</p>
+<br>
+
+<form>
+    <label>Comment</label>
+    <input placeholder="Comment">
+    <button>Submit</button>
+</form>
+
+<br>
+<div class="list-group w-auto">
+    <a href="#" class="list-group-item list-group-item-action d-flex gap-3 mb-3 py-3" aria-current="true">
+      <div class="d-flex gap-2 w-100 justify-content-between">
+        <div>
+          <h6 class="mb-0">List group item heading</h6>
+          <p class="mb-0 opacity-75">Some placeholder content in a paragraph.</p>
+        </div>
+        <small class="opacity-50 text-nowrap">now</small>
+      </div>
+    </a>
+    <a href="#" class="list-group-item list-group-item-action d-flex gap-3 mb-3 py-3" aria-current="true">
+        <div class="d-flex gap-2 w-100 justify-content-between">
+          <div>
+            <h6 class="mb-0">List group item heading</h6>
+            <p class="mb-0 opacity-75">Some placeholder content in a paragraph.</p>
+          </div>
+          <small class="opacity-50 text-nowrap">now</small>
+        </div>
+      </a>
+    </div>
+{% endblock %}
+
+
