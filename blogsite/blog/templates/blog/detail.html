@@ -2,9 +2,8 @@
 
 
 {% block content %}
-<h2 class="mb-4 display-5 fw-bold text-center text-secondary">All Post</h2>
+<h2 class="mb-4 display-5 fw-bold text-center text-secondary">Post Title</h2>
 <br>
-<h2 class="blog-post-title mb-1">Another blog post</h2>
 <p class="blog-post-meta">December 23, 2020 by <a href="#">Jacob</a></p>
 
 <p>This is some additional paragraph placeholder content. It has been written to fill the available space and show how a longer snippet of text affects the surrounding content. We'll repeat it often to keep the demonstration flowing, so be on the lookout for this exact same string of text.</p>
@@ -13,14 +12,25 @@
 </blockquote>
 <p>This is some additional paragraph placeholder content. It has been written to fill the available space and show how a longer snippet of text affects the surrounding content. We'll repeat it often to keep the demonstration flowing, so be on the lookout for this exact same string of text.</p>
 <br>
-
-<form>
-    <label>Comment</label>
-    <input placeholder="Comment">
-    <button>Submit</button>
-</form>
+<h4>Add Comment</h4>
+<form style="max-width: 400px;">
+    <div class="form-floating">
+      <input type="email" class="form-control mb-3" id="floatingInput" placeholder="name@example.com">
+      <label for="floatingInput">Email address</label>
+    </div>
+    <div class="form-floating">
+      <input type="password" class="form-control mb-3" id="floatingPassword" placeholder="Password">
+      <label for="floatingPassword">Password</label>
+    </div>
+    <div class="form-floating"> 
+        <textarea class="form-control mb-3" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+        <label for="floatingTextarea2">Comments</label>
+      </div>
+      <button type="submit" class="align-center btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold">Post</button>
+    </form>
 
 <br>
+<h4>Comments</h4>
 <div class="list-group w-auto">
     <a href="#" class="list-group-item list-group-item-action d-flex gap-3 mb-3 py-3" aria-current="true">
       <div class="d-flex gap-2 w-100 justify-content-between">
