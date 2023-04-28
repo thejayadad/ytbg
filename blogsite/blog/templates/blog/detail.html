@@ -2,55 +2,47 @@
 
 
 {% block content %}
-<h2 class="mb-4 display-5 fw-bold text-center text-secondary">Post Title</h2>
+<a href="/">Back Home</a>
+<h2 class="mb-4 display-5 fw-bold text-center text-info">{{post.title}}</h2>
 <br>
-<p class="blog-post-meta">December 23, 2020 by <a href="#">Jacob</a></p>
+<p class="blog-post-meta">{{post.date_added}} by <a href="#">thejayadad</a></p>
 
-<p>This is some additional paragraph placeholder content. It has been written to fill the available space and show how a longer snippet of text affects the surrounding content. We'll repeat it often to keep the demonstration flowing, so be on the lookout for this exact same string of text.</p>
+<p>{{post.intro}}</p>
 <blockquote>
-  <p>Longer quote goes here, maybe with some <strong>emphasized text</strong> in the middle of it.</p>
+  <p>{{post.body}}</p>
 </blockquote>
-<p>This is some additional paragraph placeholder content. It has been written to fill the available space and show how a longer snippet of text affects the surrounding content. We'll repeat it often to keep the demonstration flowing, so be on the lookout for this exact same string of text.</p>
+<p>Be respectful in the party below :-)</p>
+
+<!-- Cooment Form -->
+
 <br>
-<h4>Add Comment</h4>
-<form style="max-width: 400px;">
-    <div class="form-floating">
-      <input type="email" class="form-control mb-3" id="floatingInput" placeholder="name@example.com">
-      <label for="floatingInput">Email address</label>
-    </div>
-    <div class="form-floating">
-      <input type="password" class="form-control mb-3" id="floatingPassword" placeholder="Password">
-      <label for="floatingPassword">Password</label>
-    </div>
-    <div class="form-floating"> 
-        <textarea class="form-control mb-3" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-        <label for="floatingTextarea2">Comments</label>
-      </div>
+<h4 class="text-info">Add Comment</h4>
+<form method="post" action="." style="max-width: 400px;">
+   {% csrf_token %}
+
+    {{ form.as_p }}
       <button type="submit" class="align-center btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold">Post</button>
     </form>
 
 <br>
-<h4>Comments</h4>
+<h4 class="text-secondary">Comments</h4>
 <div class="list-group w-auto">
-    <a href="#" class="list-group-item list-group-item-action d-flex gap-3 mb-3 py-3" aria-current="true">
-      <div class="d-flex gap-2 w-100 justify-content-between">
-        <div>
-          <h6 class="mb-0">List group item heading</h6>
-          <p class="mb-0 opacity-75">Some placeholder content in a paragraph.</p>
-        </div>
-        <small class="opacity-50 text-nowrap">now</small>
-      </div>
-    </a>
-    <a href="#" class="list-group-item list-group-item-action d-flex gap-3 mb-3 py-3" aria-current="true">
-        <div class="d-flex gap-2 w-100 justify-content-between">
-          <div>
-            <h6 class="mb-0">List group item heading</h6>
-            <p class="mb-0 opacity-75">Some placeholder content in a paragraph.</p>
-          </div>
-          <small class="opacity-50 text-nowrap">now</small>
-        </div>
-      </a>
-    </div>
-{% endblock %}
 
+{% for comment in post.comments.all %}
+<a href="#" class="list-group-item list-group-item-action d-flex gap-3 mb-3 py-3 border-secondary" aria-current="true" style="background-color: black;">
+    <div class="d-flex gap-2 w-100 justify-content-between">
+        <div>
+          <h6 class="mb-0"><strong>{{ comment.name }}</strong></h6>
+          <p class="mb-0 opacity-75">{{ comment.body }}</p>
+        </div>
+        <small class="opacity-50 text-nowrap">{{ comment.date_added }}</small>
+      </div>
+</a>
+{% empty %}
+<div class="notification">
+    <h1 class="text-warning">Be First to Comment</h1>
+</div>
+{% endfor %}
+</div>
+{% endblock %}
 

@@ -21,5 +21,5 @@ from blog.views import homepage, deatail
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', homepage, name='homepage' ),
-    path('detail/', deatail, name='detail')
+    path('<slug:slug>/', deatail, name='detail')
 ]
